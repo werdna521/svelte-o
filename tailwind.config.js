@@ -15,4 +15,9 @@ module.exports = {
     ], 
     enabled: production // disable purge in dev
   },
+  theme: {
+    fontFamily: {
+      base: ['Work Sans']
+    }
+  }
 };
