@@ -1,4 +1,5 @@
 import svelte from 'rollup-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
@@ -41,7 +42,17 @@ export default {
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
-			}
+      },
+      preprocess: sveltePreprocess({
+        sourcemap: !production,
+        postcss: {
+          plugins: [
+            require("tailwindcss"), 
+            require("autoprefixer"),
+            require("postcss-nesting")
+          ],
+        },
+      }),
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
