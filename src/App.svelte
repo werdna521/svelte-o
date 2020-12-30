@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
+  export let appName;
 </script>
 
 <main>
-  <h1 class="font-bold text-3xl">Svelte-O</h1>
+  <h1 class="font-bold text-3xl">{appName}</h1>
 </main>
 
 <style global lang="postcss">
