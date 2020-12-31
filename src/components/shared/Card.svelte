@@ -5,7 +5,7 @@
 
 <style scoped lang="postcss">
   .card {
-    @apply w-1/3 px-8 py-4 rounded-card bg-white shadow-card;
+    @apply w-1/3 p-10 rounded-card bg-white shadow-card;
   }
 
   .center {

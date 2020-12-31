@@ -1,12 +1,13 @@
 <script lang="ts">
   export let value: string;
+  export let placeholder: string;
   export let className = "";
 </script>
 
 <style scoped lang="postcss">
   input {
-    @apply px-4 py-2 w-full rounded-input shadow-input bg-secondary;
-    @apply text-base font-medium border-secondary border-2 transition-all;
+    @apply px-4 py-3 w-full rounded-input shadow-input bg-secondary;
+    @apply text-base font-medium transition-all;
   }
 
   input:focus {
@@ -18,4 +19,4 @@
   }
 </style>
 
-<input class={className} bind:value placeholder="hello" />
+<input class={className} {placeholder} bind:value />
