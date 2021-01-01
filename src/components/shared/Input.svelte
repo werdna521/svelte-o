@@ -19,7 +19,7 @@
     @apply text-sm text-accent-one font-medium;
   }
 
-  @screen md {
+  @screen lg {
     input {
       @apply text-lg py-3;
     }

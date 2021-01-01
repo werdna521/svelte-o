@@ -12,7 +12,7 @@
     @apply items-center;
   }
 
-  @screen md {
+  @screen lg {
     .card {
       @apply p-10;
     }

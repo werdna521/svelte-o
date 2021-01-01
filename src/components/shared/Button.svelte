@@ -22,7 +22,7 @@
     @apply bg-primary-dark;
   }
 
-  @screen md {
+  @screen lg {
     button {
       @apply h-12 text-lg;
     }
