@@ -9,7 +9,12 @@
 
 <style scoped lang="postcss">
   .chat-item {
-    @apply items-center px-4 py-2;
+    @apply items-center px-4 py-2 cursor-pointer;
+    @apply transition-all duration-150 ease-in-out;
+  }
+
+  .chat-item:hover {
+    @apply shadow-card bg-secondary;
   }
 </style>
 
