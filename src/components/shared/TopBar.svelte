@@ -2,7 +2,7 @@
   export let className = '';
 </script>
 
-<style lang="postcss">
+<style scoped lang="postcss">
   .topbar {
     @apply items-center h-16 px-4 py-3 bg-accent-two;
   }
