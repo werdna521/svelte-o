@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Router, Route } from 'svelte-routing';
   import Redirect from './components/routers/Redirect.svelte';
+  import Home from './views/Home.svelte';
   import Login from './views/Login.svelte';
 </script>
 
@@ -17,13 +18,21 @@
     @apply text-3xl font-bold;
   }
 
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
   caption {
     @apply text-xs text-accent-one font-medium;
   }
 
-  @screen md {
+  @screen lg {
     h1 {
       @apply text-4xl;
+    }
+
+    h2 {
+      @apply text-3xl;
     }
 
     caption {
@@ -47,8 +56,9 @@
 </style>
 
 <main class="bg-background min-h-screen">
-  <Router url="">
+  <Router>
     <Route path="login" component={Login} />
+    <Route path="home" component={Home} />
     <Redirect path="/" to="/login" />
   </Router>
 </main>

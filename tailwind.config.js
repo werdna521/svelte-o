@@ -35,9 +35,11 @@ module.exports = {
       input: '0 0 4px rgba(0, 0, 0, .1)',
       'input-active': '0 0 8px 2px rgba(0, 0, 0, .1)',
     },
-    borderRadius: {
-      card: '16px',
-      input: '8px',
+    extend: {
+      borderRadius: {
+        card: '16px',
+        input: '8px',
+      },
     },
   },
 };

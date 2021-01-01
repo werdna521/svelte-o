@@ -19,6 +19,6 @@
   }
 </style>
 
-<div class:center class={`card col ${className}`}>
+<div class:center class="card col {className}">
   <slot />
 </div>
