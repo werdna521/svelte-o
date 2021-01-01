@@ -9,7 +9,7 @@
 
 <article class="col w-full h-screen bg-white {show}">
   <TopBar className="justify-between">
-    <div />
+    <h4 class="text-white">John Doe</h4>
     <Avatar src="img/png/avatar.png" />
   </TopBar>
 </article>

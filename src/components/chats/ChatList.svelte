@@ -1,6 +1,7 @@
 <script lang="ts">
-  import Avatar from '../shared/Avatar.svelte';
+  import ChatItem from './ChatItem.svelte';
   import ScrollView from '../shared/ScrollView.svelte';
+  import SizedBox from '../shared/SizedBox.svelte';
   import TopBar from '../shared/TopBar.svelte';
 </script>
 
@@ -11,9 +12,18 @@
   </TopBar>
   <ScrollView offset={16}>
     {#each new Array(50) as _, i (i)}
-      <div class="row items-center">
-        <Avatar src="img/png/avatar.png" large />
-      </div>
+      {#if i === 0}
+        <SizedBox height={4} />
+      {/if}
+      {@debug i}
+      <ChatItem
+        src="img/png/avatar.png"
+        name="Tommy Johnson"
+        time="18:00"
+        message="Hi, Ben!" />
+      {#if i === 49}
+        <SizedBox height={4} width={4} />
+      {/if}
     {/each}
   </ScrollView>
 </article>

@@ -22,8 +22,24 @@
     @apply text-2xl font-semibold;
   }
 
+  h4 {
+    @apply text-lg font-semibold;
+  }
+
+  h6 {
+    @apply text-base text-accent-two font-medium;
+  }
+
+  p {
+    @apply text-xs text-dark;
+  }
+
   caption {
     @apply text-xs text-accent-one font-medium;
+  }
+
+  caption.regular {
+    @apply font-normal;
   }
 
   @screen lg {
@@ -33,6 +49,18 @@
 
     h2 {
       @apply text-3xl;
+    }
+
+    h4 {
+      @apply text-xl;
+    }
+
+    h6 {
+      @apply text-lg;
+    }
+
+    p {
+      @apply text-sm;
     }
 
     caption {

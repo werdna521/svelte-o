@@ -8,4 +8,4 @@
   $: w = convert.tailwindToRem(width);
 </script>
 
-<div style="height: {h}rem; width: {w}rem" />
+<div class="flex-shrink-0 flex-grow-0" style="height: {h}rem; width: {w}rem" />
