@@ -5,7 +5,7 @@
 
   onMount(() => {
     if (!firebase.authenticated()) {
-      navigate('/login');
+      navigate('/');
     }
   });
 </script>

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { navigate } from 'svelte-routing';
+  import firebase from '../../firebase';
   import AuthCard from './AuthCard.svelte';
 
   let inputData = [
@@ -15,6 +17,14 @@
       value: '',
     },
   ];
+
+  const login = () => {
+    const [email, password] = inputData.map(({ value }) => value);
+    firebase.login(email, password).then((success: boolean) => {
+      if (!success) return alert('Salah');
+      navigate('/home');
+    });
+  };
 </script>
 
 <AuthCard
@@ -23,4 +33,5 @@
   captionHref="/signup"
   captionHreftext="Sign up"
   title="Login"
-  bind:inputData />
+  bind:inputData
+  on:click={login} />

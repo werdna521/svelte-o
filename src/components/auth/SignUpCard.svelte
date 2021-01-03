@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { navigate } from 'svelte-routing';
   import firebase from '../../firebase';
   import AuthCard from './AuthCard.svelte';
 
@@ -25,7 +26,10 @@
 
   const signUp = () => {
     const [name, email, password] = inputData.map(({ value }) => value);
-    firebase.signUp(name, email, password);
+    firebase.signUp(name, email, password).then((success: boolean) => {
+      if (!success) return alert('no no no');
+      navigate('/login');
+    });
   };
 </script>
 

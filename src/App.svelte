@@ -3,9 +3,9 @@
   import { Router, Route } from 'svelte-routing';
   import firebase from './firebase';
   import ProtectedRoute from './components/routers/ProtectedRoute.svelte';
-  import Redirect from './components/routers/Redirect.svelte';
   import Home from './views/Home.svelte';
   import Login from './views/Login.svelte';
+  import Root from './views/Root.svelte';
   import SignUp from './views/SignUp.svelte';
 
   onMount(async () => {
@@ -107,6 +107,6 @@
         <Home />
       </ProtectedRoute>
     </Route>
-    <Redirect path="/" to="/login" />
+    <Route path="/" component={Root} />
   </Router>
 </main>

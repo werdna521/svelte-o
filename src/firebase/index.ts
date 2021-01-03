@@ -1,5 +1,14 @@
+import { navigate } from 'svelte-routing';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+
+enum AuthState {
+  unknown,
+  signedOff,
+  signedIn,
+}
+
+let isAuthenticated = AuthState.unknown;
 
 export default {
   init(): void {
@@ -13,6 +22,19 @@ export default {
       measurementId: 'G-3WM71GPL8X',
     };
     firebase.initializeApp(firebaseConfig);
+    firebase.auth().onAuthStateChanged(user => {
+      const firstTimer = isAuthenticated === AuthState.unknown;
+      const state = user ? user.emailVerified : false;
+      isAuthenticated = state ? AuthState.signedIn : AuthState.signedOff;
+
+      if (firstTimer) {
+        if (isAuthenticated === AuthState.signedIn) {
+          navigate('/home');
+        } else {
+          navigate('/login');
+        }
+      }
+    });
   },
   signUp(name: string, email: string, password: string): Promise<boolean> {
     return firebase
@@ -31,8 +53,16 @@ export default {
         return false;
       });
   },
-  authenticated(): boolean {
-    const currentUser = firebase.auth().currentUser;
-    return currentUser?.emailVerified ? true : false;
+  login(email: string, password: string) {
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential: firebase.auth.UserCredential) => {
+        return userCredential.user.emailVerified;
+      })
+      .catch(() => false);
+  },
+  authenticated(): AuthState {
+    return isAuthenticated;
   },
 };
