@@ -3,6 +3,12 @@
 
   let inputData = [
     {
+      key: 'name',
+      placeholder: 'Full Name',
+      type: 'text',
+      value: '',
+    },
+    {
       key: 'email',
       placeholder: 'Email',
       type: 'text',
@@ -18,9 +24,9 @@
 </script>
 
 <AuthCard
-  buttonText="Sign In"
-  caption="Don't have an account?"
-  captionHref="/signup"
-  captionHreftext="Sign up"
-  title="Login"
+  buttonText="Sign Up"
+  caption="Already have an account?"
+  captionHref="/login"
+  captionHreftext="Sign in"
+  title="Create Account"
   bind:inputData />

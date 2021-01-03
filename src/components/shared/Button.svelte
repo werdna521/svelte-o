@@ -29,4 +29,4 @@
   }
 </style>
 
-<button {type} class:primary> {text} </button>
+<button {type} class:primary on:click>{text}</button>

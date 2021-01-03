@@ -3,6 +3,7 @@
   import Redirect from './components/routers/Redirect.svelte';
   import Home from './views/Home.svelte';
   import Login from './views/Login.svelte';
+  import SignUp from './views/SignUp.svelte';
 </script>
 
 <style global lang="postcss">
@@ -34,6 +35,10 @@
     @apply text-xs text-dark;
   }
 
+  a {
+    @apply text-xs text-primary font-medium underline;
+  }
+
   caption {
     @apply text-xs text-accent-one font-medium;
   }
@@ -63,6 +68,10 @@
       @apply text-sm;
     }
 
+    a {
+      @apply text-sm;
+    }
+
     caption {
       @apply text-sm;
     }
@@ -77,7 +86,6 @@
   .col {
     @apply flex flex-col;
   }
-
   /* purgecss end ignore */
 
   @tailwind utilities;
@@ -86,6 +94,7 @@
 <main class="bg-background min-h-screen">
   <Router>
     <Route path="login" component={Login} />
+    <Route path="signup" component={SignUp} />
     <Route path="home" component={Home} />
     <Redirect path="/" to="/login" />
   </Router>
