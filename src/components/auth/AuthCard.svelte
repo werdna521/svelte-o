@@ -30,11 +30,14 @@
   </div>
   <SizedBox height={8} />
   {#each inputData as input, i (input.key)}
-    <Input placeholder={input.placeholder} bind:value={input.value} />
+    <Input
+      placeholder={input.placeholder}
+      type={input.type}
+      bind:value={input.value} />
     {#if i !== inputData.length - 1}
       <SizedBox height={6} />
     {/if}
   {/each}
   <SizedBox height={10} />
-  <Button text={buttonText} primary />
+  <Button text={buttonText} primary on:click />
 </Card>

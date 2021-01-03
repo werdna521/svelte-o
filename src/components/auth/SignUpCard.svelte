@@ -1,4 +1,5 @@
 <script lang="ts">
+  import firebase from '../../firebase';
   import AuthCard from './AuthCard.svelte';
 
   let inputData = [
@@ -21,6 +22,11 @@
       value: '',
     },
   ];
+
+  const signUp = () => {
+    const [name, email, password] = inputData.map(({ value }) => value);
+    firebase.signUp(name, email, password);
+  };
 </script>
 
 <AuthCard
@@ -29,4 +35,5 @@
   captionHref="/login"
   captionHreftext="Sign in"
   title="Create Account"
-  bind:inputData />
+  bind:inputData
+  on:click={signUp} />

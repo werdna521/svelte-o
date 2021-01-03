@@ -1,9 +1,16 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { Router, Route } from 'svelte-routing';
+  import firebase from './firebase';
+  import ProtectedRoute from './components/routers/ProtectedRoute.svelte';
   import Redirect from './components/routers/Redirect.svelte';
   import Home from './views/Home.svelte';
   import Login from './views/Login.svelte';
   import SignUp from './views/SignUp.svelte';
+
+  onMount(async () => {
+    firebase.init();
+  });
 </script>
 
 <style global lang="postcss">
@@ -95,7 +102,11 @@
   <Router>
     <Route path="login" component={Login} />
     <Route path="signup" component={SignUp} />
-    <Route path="home" component={Home} />
+    <Route path="home">
+      <ProtectedRoute>
+        <Home />
+      </ProtectedRoute>
+    </Route>
     <Redirect path="/" to="/login" />
   </Router>
 </main>
