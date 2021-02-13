@@ -1,16 +1,19 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { Router, Route } from 'svelte-routing';
+  import { Router, Route, navigate } from 'svelte-routing';
   import firebase from './firebase';
+  import { addFriendModal } from './stores/modal';
   import ProtectedRoute from './components/routers/ProtectedRoute.svelte';
+  import AddFriendModal from './components/shared/AddFriendModal.svelte';
+  import Chat from './views/Chat.svelte';
   import Home from './views/Home.svelte';
   import Login from './views/Login.svelte';
   import Root from './views/Root.svelte';
   import SignUp from './views/SignUp.svelte';
 
-  onMount(async () => {
-    firebase.init();
-  });
+  navigate('/');
+  firebase.init();
+
+  const dismissModal = () => addFriendModal.update(_ => false);
 </script>
 
 <style global lang="postcss">
@@ -107,6 +110,12 @@
         <Home />
       </ProtectedRoute>
     </Route>
+    <Route path="chat/:friendId/:chatId" let:params>
+      <ProtectedRoute>
+        <Chat friendId={params.friendId} chatId={params.chatId} />
+      </ProtectedRoute>
+    </Route>
     <Route path="/" component={Root} />
   </Router>
+  <AddFriendModal show={$addFriendModal} on:dismiss={dismissModal} />
 </main>
