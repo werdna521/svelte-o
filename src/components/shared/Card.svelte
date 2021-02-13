@@ -5,7 +5,8 @@
 
 <style scoped lang="postcss">
   .card {
-    @apply w-full max-w-lg p-8 mx-4 rounded-card bg-white shadow-card;
+    @apply w-full max-w-lg p-8 mx-4 rounded-card;
+    @apply bg-white shadow-card opacity-100;
   }
 
   .center {
